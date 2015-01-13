@@ -129,8 +129,13 @@ contains(names, 'Colt', function(result){
 //make a new array with only unique names
 
 var uniq = function (array, callback) {
-
-
+  var newArray = []; // create an empty array to hold names
+  for (var i = 0; i < array.length; i++) { // loop through the array given as parameter
+    if (newArray.indexOf(array[i]) === -1) { // as long as element at array[i] is not in newArray
+      newArray.push(array[i]); //push that element to the new array
+    }
+  }
+  callback(newArray); // call the function represented by callback
 };
 
 
@@ -151,6 +156,14 @@ uniq(names, function(uniqArr){
 
     //Code Here for each
 
+var each = function (array, callback) { 
+  for (var i = 0; i < array.length; i++) { // loop through an array
+    callback(array[i], i); //at every loop, call the callback function with these parameters
+  }
+};
+
+
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -164,9 +177,16 @@ each(names, function(item, indice){
 
 
 
-
-
  //code here for getUserById
+var getUserById = function (array, idToFind, callback) {
+ for (var i = 0; i < array.length; i++) {
+    if (array[i].id === idToFind) {
+      callback(array[i]);
+    }
+  }
+};
+
+
 
 var users = [
   {
