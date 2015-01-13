@@ -3,9 +3,12 @@ Below is a sample problem
 
   //code here for sayHi
 
+
    sayHi('Hi Katie', function(thingToSay){
       alert(thingToSay);
-   });
+   });  
+
+   /////this is the calling code. have to write the code for it/////////
    
 
 and what you should write is the favNum function that makes the code above work, 
@@ -25,6 +28,11 @@ and what you should write is the favNum function that makes the code above work,
 
 
   //Code Here for first
+
+var first = function (array, callback) {
+  callback(array[0]);
+};
+
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -33,9 +41,12 @@ first(names, function(firstName){
 
 
 
+
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
+var last = function (array, callback) {
+  callback(array[array.length - 1]);
+};
 
 
   //Code Here for last
@@ -48,15 +59,18 @@ last(names, function(lastName){
 
 
 
-
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
 
 
-
-
   //Code Here for multiply
+
+  var multiply = function (num1, num2, callback) {
+  var total = num1 * num2;
+  callback(total);
+
+};
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -73,6 +87,25 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+
+var contains = function (array, nameToFind, callback) {
+  if (array.indexOf(nameToFind) !== -1) {
+    var flag = true;
+  }
+  callback(flag);
+};
+
+
+//     var flag = false;
+//     for (var i = 0; i < array.length; i++) {  //search to see if nameToFind is in the array
+//       if (nameToFind === array[i]) { //if it's in the array
+//         flag = true; //  store that result
+//         break; // break out of loop
+//       }
+//     }
+//     callback(flag); //then give that result to the callback function
+// };
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -93,6 +126,14 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
+//make a new array with only unique names
+
+var uniq = function (array, callback) {
+
+
+};
+
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
